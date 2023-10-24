@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie Chart of Gender</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <canvas id="genderPieChart" style="max-height: 400px; display: block; box-sizing: border-box; height: 400px; width: 400px;"></canvas>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            new Chart(document.querySelector('#genderPieChart'), {
+                type: 'pie',
+                data: {
+                    labels: ['Female', 'Male', 'Other'],
+                    datasets: [{
+                        data: [50, 100, 20], // Replace with your data
+                        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                }
+            });
+        });
+    </script>
+</body>
+</html>

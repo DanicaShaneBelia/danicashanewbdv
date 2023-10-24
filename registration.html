@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ /* Style for the Sign Up button */
+ .btn-registration {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #db2518;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .btn-registration:hover {
+      background-color: #976c2c;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  
+  /* Modal container */
+  .modal {
+    display: none; /* Hide the modal by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    z-index: 1;
+  }
+
+  /* Modal content */
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    max-width: 400px;
+    position: relative;
+  }
+
+  /* Close button */
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  
+    
+  /* Set a background image for #loginForm */
+#loginForm {
+  /* background-image: url("https://i.pinimg.com/736x/0e/ca/99/0eca999c31abcc9d7abb39a277d0f511.jpg"); */
+  background-size: cover; /* Adjust to your preference */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px; /* Add some padding to make the content more readable */
+  /* color: #fff; */
+}
+
+/* Set a background image for #registrationForm */
+#registrationForm {
+  /* background-image: url("https://i.pinimg.com/736x/0e/ca/99/0eca999c31abcc9d7abb39a277d0f511.jpg"); */
+  background-size: cover; /* Adjust to your preference */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px; /* Add some padding to make the content more readable */
+
+}
+  
+  #loginForm p, #registrationForm p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  /* Input fields */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Submit buttons */
+  input[type="submit"] {
+    background-color: #cc3b16;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Link to register or log in */
+  #registrationForm a, #loginForm a {
+    text-decoration: none;
+    color: #ff3300;
+    margin-top: 10px;
+    display: block;
+  }
+</style>
+</head>
+
+<body>
+
+  
+   <!-- The Modal -->
+   <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="loginForm">
+        <p>Login Form</p>
+        <form method="POST" action="authenticate.php">
+
+          Enter Email:
+          <input type="email" name="email" required><br>
+
+          Enter Password:
+          <input type="password" name="password" required><br>
+
+          <input type="submit" name="loginbtn" value="Login">
+          <p>Don't have an account? <a href="landing.html">Register here</a></p>
+        </form>
+      </div>
+
+      <div id="registrationForm" style="display: none;">
+        <p>Registration Form</p>
+        <form method="POST" action="register.php">
+          Register a New Account:
+          <br>
+          First Name:
+          <input type="text" name="fname" required><br>
+
+          Last Name:
+          <input type="text" name="lname" required><br>
+    
+          Email:
+          <input type="text" name="email" required><br>
+
+          Age:
+          <input type="number" name="age" required><br>
+
+          Address:
+          <input type="text" name="address" required><br>
+         
+          Password:
+          <input type="password" name="password" required><br>
+
+          <input type="submit" name="register" value="Register">
+          <br><br>
+          <a href="landing.html">Log in</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Get references to the modal and the links
+    const modal = document.getElementById('myModal');
+    const loginLink = document.querySelector('.btn-login');
+    const registrationLink = document.querySelector('.btn-registration');
+    const closeBtn = document.querySelector('.close');
+    const loginForm = document.getElementById('loginForm');
+    const registrationForm = document.getElementById('registrationForm');
+
+    // Function to open the modal with login form
+    function openLoginModal() {
+      loginForm.style.display = 'block';
+      registrationForm.style.display = 'none';
+      modal.style.display = 'block';
+    }
+
+    // Function to open the modal with registration form
+    function openRegistrationModal() {
+      loginForm.style.display = 'none';
+      registrationForm.style.display = 'block';
+      modal.style.display = 'block';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    // Event listeners to open and close the modal
+    loginLink.addEventListener('click', openLoginModal);
+    registrationLink.addEventListener('click', openRegistrationModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close the modal if the user clicks outside of it
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+  </script>
+</body>
+
+</body>
+</html>

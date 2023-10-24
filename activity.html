@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ug Life Activities</title>
+    <link rel="stylesheet" href="staff.css">
+</head>
+<style>
+    
+</style>
+
+<body>
+    <header>
+        <h1>ug Life Activities</h1>
+        <a href="logout.php">Logout</a>
+    </header>
+    <main>
+        <section class="activities">
+            <h2>Manage ug Life Activities</h2>
+            <div class="activity-controls">
+                <button id="addActivityBtn">Add Activity</button>
+                <div id="addActivityForm" style="display: none;">
+                    <h2>Add Activity</h2>
+                    <form method="post" action="add_activity.php">
+                        <label for="activityName">Name:</label>
+                        <input type="text" name="activityName" required><br>
+                        
+                        <label for="activityDate">Date:</label>
+                        <input type="date" name="activityDate" required><br>
+                        
+                        <label for="activityTime">Time:</label>
+                        <input type="time" name="activityTime" required><br>
+                        
+                        <label for="activityLocation">Location:</label>
+                        <input type="text" name="activityLocation" required><br>
+                        
+                        <label for="activityOOTD">OOTD (Outfit of the Day):</label>
+                        <input type="text" name="activityOOTD" required><br>
+                        
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
+
+                <button id="editActivityBtn">Edit Activity</button>
+                <button id="showAllActivityBtn">Show All Activities</button>
+                <button id="setActivityBtn">Set Activity</button>
+            </div>
+            <div class="activity-list">
+                <!-- Add your list of activities here (sorted by date) -->
+                <!-- Each activity should include Name, Date, Time, Location, OOTD -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript to toggle the visibility of the "Add Activity" form
+        document.getElementById("addActivityBtn").addEventListener("click", function() {
+            var addActivityForm = document.getElementById("addActivityForm");
+            if (addActivityForm.style.display === "none") {
+                addActivityForm.style.display = "block";
+            } else {
+                addActivityForm.style.display = "none";
+            }
+        });
+
+        // JavaScript for other features like editing, showing all, and setting activity status can be added here
+    </script>
+</body>
+</html>

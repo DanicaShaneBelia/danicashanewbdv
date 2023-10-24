@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Styles for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    margin: 100px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+</style>
+<body>
+    <a class="btn-login" href="#">Log In</a>
+    <a class="btn-registration" href="#">Sign Up</a>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- Your login and registration forms can go here -->
+            <p>Login Form</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Get references to the modal and the links
+const modal = document.getElementById('myModal');
+const loginLink = document.querySelector('.btn-login');
+const registrationLink = document.querySelector('.btn-registration');
+const closeBtn = document.querySelector('.close');
+
+// Function to open the modal
+function openModal() {
+    modal.style.display = 'block';
+}
+
+// Function to close the modal
+function closeModal() {
+    modal.style.display = 'none';
+}
+
+// Event listeners to open and close the modal
+loginLink.addEventListener('click', openModal);
+registrationLink.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+
+// Close the modal if the user clicks outside of it
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+    </script>
+</body>
+</html>
